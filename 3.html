@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background:url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+        
+    </div>
+    <div class="knopka2">
+        <a href="index.html">
+            <img src="im.jpg" width="100" height="100">
+        </a>
+    </div>
+
+    <h1>Форма ввода данных</h1>
+    <form id="myForm">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" required>
+        <br><br>
+        
+        <label for="age">Возраст:</label>
+        <input type="number" id="age" required>
+        <br><br>
+        
+        <input type="submit" value="Отправить">
+    </form>
+    
+    <div class="output" id="output"></div>
+    
+    <script>
+        // Получаем форму и элемент вывода
+        const form = document.getElementById('myForm');
+        const outputDiv = document.getElementById('output');
+
+        // Обработчик события на отправку формы
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Останавливаем стандартное поведение формы
+            
+            // Получаем значения из полей ввода
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            
+            // Выводим данные в div
+            outputDiv.innerHTML = `<strong>Вы ввели:</strong><br> Имя: ${name}<br> Возраст: ${age}`;
+            
+            // Очищаем поля ввода
+            form.reset();
+        });
+    </script>
+</body>
+</html>
